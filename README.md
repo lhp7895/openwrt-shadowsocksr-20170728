@@ -1,8 +1,6 @@
 ShadowsocksR-libev for OpenWrt
 ===
 
-[![Download][B]][2]  
-
 简介
 ---
 
@@ -25,15 +23,6 @@ ShadowsocksR-libev for OpenWrt
            └── ssr-tunnel      // 提供端口转发, 可用于 DNS 查询
    ```
 
- - shadowsocks-libev-server
-
-   ```
-   服务端/
-   └── usr/
-       └── bin/
-           └── ss-server      // 服务端可执行文件
-   ```
-
 编译
 ---
 
@@ -51,11 +40,11 @@ ShadowsocksR-libev for OpenWrt
      ./scripts/feeds install zlib libopenssl libpolarssl libmbedtls libpcre
      rm -rf package/feeds/base/mbedtls/patches
    # 获取 shadowsocks-libev Makefile
-   git clone https://github.com/chenhw2/openwrt-shadowsocks.git package/shadowsocks-libev
+   git clone https://github.com/chenhw2/openwrt-shadowsocks.git package/feeds/shadowsocks-libev
    # 选择要编译的包 Network -> shadowsocks-libev
    make menuconfig
    # 开始编译
-   make package/shadowsocksr-libev/compile V=99
+   make package/feeds/shadowsocksr-libev/compile V=99
    ```
 
 配置
@@ -78,11 +67,9 @@ ShadowsocksR-libev for OpenWrt
    obfs           | 混淆插件   | 客户端的混淆插件，推荐使用[plain, http_simple, http_post, tls1.2_ticket_auth][P]
 
 
-  [1]: https://github.com/breakwa11/shadowsocks-libev
-  [2]: https://bintray.com/aa65535/opkg/shadowsocks-libev/_latestVersion "预编译 IPK 下载"
-  [B]: https://api.bintray.com/packages/aa65535/opkg/shadowsocks-libev/images/download.svg
+  [1]: https://github.com/shadowsocksr/shadowsocksr-libev
   [3]: https://github.com/chenhw2/luci-app-shadowsocksr
-  [E]: https://github.com/shadowsocks/luci-app-shadowsocks/wiki/Encrypt-method
+  [E]: http://shadowsocks.org/en/spec/Stream-Ciphers.html
   [F]: https://github.com/shadowsocks/shadowsocks/wiki/TCP-Fast-Open
   [S]: https://wiki.openwrt.org/doc/howto/obtain.firmware.sdk
   [P]: https://github.com/breakwa11/shadowsocks-rss/wiki/obfs
